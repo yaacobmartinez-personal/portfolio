@@ -16,7 +16,7 @@
             href="https://drive.google.com/file/d/1Hc1xruO5RQvVGdJn1oJ0M0o7krMIxx4Z/view?usp=sharing" 
             target="_blank" 
             rel="noopener noreferrer" 
-            class="inline-flex items-center text-slate-400 hover:text-white transition-colors"
+            class="hidden lg:inline-flex items-center text-slate-400 hover:text-white transition-colors"
           >
             Download Resume
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor" style="transform: rotate(-45deg);">

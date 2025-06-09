@@ -36,7 +36,7 @@
             :period="job.period"
             :description="job.description"
             :technologies="job.technologies"
-            :class="{ 'opacity-40 blur-sm': isExperienceHovered && hoveredExperienceIndex !== index }"
+            :class="{ 'opacity-40 lg:blur-sm': isExperienceHovered && hoveredExperienceIndex !== index }"
             @hover="handleExperienceHover(index, $event)"
           />
         </div>
@@ -63,7 +63,7 @@
             :description="work.description"
             :technologies="work.technologies"
             :image="work.image"
-            :class="{ 'opacity-40 blur-sm': isWorkHovered && hoveredWorkIndex !== index }"
+            :class="{ 'opacity-40 lg:blur-sm': isWorkHovered && hoveredWorkIndex !== index }"
             @hover="handleWorkHover(index, $event)"
           />
         </div>
