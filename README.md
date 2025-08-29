@@ -73,3 +73,34 @@ bun run preview
 ```
 
 Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+
+## Email Configuration
+
+The contact form uses nodemailer to send emails. To configure email functionality, add the following environment variables to your `.env` file:
+
+```bash
+# SMTP Configuration for Email
+SMTP_HOST=smtp.gmail.com
+SMTP_PORT=587
+SMTP_USER=your-email@gmail.com
+SMTP_PASS=your-app-password
+
+# Contact Email (where you want to receive contact form emails)
+CONTACT_EMAIL=your-email@gmail.com
+```
+
+### Gmail Setup
+For Gmail, you'll need to:
+1. Enable 2-factor authentication
+2. Generate an App Password: https://myaccount.google.com/apppasswords
+3. Use the App Password instead of your regular password
+
+### API Endpoint
+The contact form sends POST requests to `/api/contact` with the following body:
+```json
+{
+  "name": "John Doe",
+  "email": "john@example.com", 
+  "message": "Hello, I'd like to discuss a project."
+}
+```

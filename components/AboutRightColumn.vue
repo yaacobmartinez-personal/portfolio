@@ -176,22 +176,24 @@ const formData = ref({
   email: '',
   message: ''
 })
+const mail = useMail()
 
 const isSubmitting = ref(false)
 
 const handleSubmit = async () => {
   isSubmitting.value = true
   try {
-    // TODO: Implement form submission logic
-    console.log('Form submitted:', formData.value)
-    // Reset form after successful submission
-    formData.value = {
-      name: '',
-      email: '',
-      message: ''
-    }
-  } catch (error) {
+    await mail.send({
+      config: 'contact',
+      from: formData.value.email,
+      subject: 'New Message from Portfolio',
+      text: `Name: ${formData.value.name}\nEmail: ${formData.value.email}\nMessage: ${formData.value.message}`
+    })
+    alert('Message sent successfully! I will get back to you soon as I received your message.')
+  } catch (error: any) {
     console.error('Error submitting form:', error)
+    const errorMessage = error.data?.statusMessage || 'Failed to send message. Please try again.'
+    alert(errorMessage)
   } finally {
     isSubmitting.value = false
   }
@@ -215,9 +217,11 @@ const handleWorkHover = (index: number, isHovered: boolean) => {
 }
 
 watch(() => props.activeSection, (newSection) => {
-  const element = document.getElementById(newSection)
-  if (element) {
-    element.scrollIntoView()
+  if (newSection) {
+    const element = document.getElementById(newSection)
+    if (element) {
+      element.scrollIntoView()
+    }
   }
 })
 </script>

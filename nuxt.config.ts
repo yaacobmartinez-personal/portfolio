@@ -2,7 +2,19 @@
 export default defineNuxtConfig({
   compatibilityDate: '2025-05-15',
   devtools: { enabled: true },
-  modules: ['@nuxtjs/tailwindcss'],
+  modules: ['@nuxtjs/tailwindcss', ['nuxt-mail', {
+    message: [
+      { name: 'contact', to: process.env.SMTP_USER } 
+    ],
+    smtp: {
+      service: 'gmail',
+      auth: {
+        user: process.env.SMTP_USER,
+        pass: process.env.SMTP_PASS,
+      },
+    },
+  }]
+],
   nitro: {
     routeRules: {
       '/api/**': { cors: true }
