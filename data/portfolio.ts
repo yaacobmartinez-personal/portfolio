@@ -19,53 +19,53 @@ export const aboutMe = `I'm a passionate full-stack developer with expertise in 
 
 export const experience: Experience[] = [
   {
-    title: 'Senior Full Stack Developer',
-    company: 'Tech Company',
-    period: '2020 - Present',
-    description: 'Leading development of enterprise applications using modern web technologies. Spearheading the implementation of microservices architecture and cloud infrastructure.',
-    technologies: ['Vue.js', 'Node.js', 'TypeScript', 'AWS', 'Docker']
+    title: 'Senior Software Engineer',
+    company: 'Cambridge University Press and Assessment',
+    period: '2023 - Present',
+    description: 'Develop and maintain complex, feature-rich web services and applications with different technologies and in accordance with the agreed coding standards and software development best practices and principles.',
+    technologies: ['Vue.js', 'Node.js', 'TypeScript', 'NuxtJS', 'AWS Lambda']
   },
   {
-    title: 'Full Stack Developer',
-    company: 'Digital Agency',
-    period: '2018 - 2020',
-    description: 'Developed and maintained multiple client projects using various web technologies. Implemented responsive designs and optimized application performance.',
-    technologies: ['React', 'Express.js', 'MongoDB', 'Redux', 'Tailwind']
+    title: 'Independent Contractor - Front End Developer',
+    company: 'DevPartners Co.',
+    period: '2022 - 2023',
+    description: 'In charge with development of features of system applications and involved in planning and development of feature improvements for existing website/applications.',
+    technologies: ['NextJS', 'Express.js', 'MongoDB', 'Redux', 'Tailwind']
   },
   {
-    title: 'Frontend Developer',
-    company: 'Startup',
-    period: '2016 - 2018',
-    description: 'Built responsive and interactive user interfaces for web applications. Collaborated with UX designers to implement pixel-perfect designs.',
-    technologies: ['JavaScript', 'HTML5', 'CSS3', 'Sass', 'jQuery']
+    title: 'Software Engineer',
+    company: '360Logix Solutions Inc.',
+    period: '2021 - 2022',
+    description: 'In charge of development of applications as requested by clients, such as, but not limited to, web, mobile and custom applications.',
+    technologies: ['JavaScript', 'ReactJS', 'MongoDB', 'ExpressJS']
   },
   {
-    title: 'Junior Web Developer',
-    company: 'Digital Studio',
-    period: '2015 - 2016',
-    description: 'Assisted in developing and maintaining client websites. Implemented responsive designs and basic animations.',
-    technologies: ['HTML', 'CSS', 'JavaScript', 'Bootstrap', 'WordPress']
+    title: 'Software Engineer',
+    company: 'Coinpass Ltd',
+    period: '2020 - 2021',
+    description: 'Work with development teams and product managers to provide sound software solutions.',
+    technologies: ['ReactJS', 'MongoDB', 'JavaScript', 'PostgreSQL', 'NodeJS']
   },
   {
-    title: 'Web Development Intern',
-    company: 'Tech Startup',
-    period: '2014 - 2015',
-    description: 'Learned and applied web development fundamentals. Contributed to small-scale projects and bug fixes.',
-    technologies: ['HTML', 'CSS', 'JavaScript', 'PHP', 'MySQL']
+    title: 'Front-End Web Developer',
+    company: 'Dear Wolves',
+    period: '2020',
+    description: 'Participate in planning, creation and development of web apps needed by our clients.',
+    technologies: ['ReactJS', 'NodeJS', 'JavaScript', 'ExpressJS', 'MySQL']
   },
   {
-    title: 'Lead Software Engineer',
-    company: 'Enterprise Solutions',
+    title: 'Senior Process Executive',
+    company: 'Cognizant Technology Solutions.',
     period: '2019 - 2020',
-    description: 'Led a team of developers in building scalable enterprise applications. Implemented CI/CD pipelines and automated testing strategies.',
-    technologies: ['Java', 'Spring Boot', 'Kubernetes', 'Jenkins', 'PostgreSQL']
+    description: 'Design, develop, test, deploy, operate and support management solutions across private-cloud environments.',
+    technologies: ['Salesforce', 'Apex', 'JavaScript', 'SQL', 'Jenkins']
   },
   {
-    title: 'Mobile App Developer',
-    company: 'App Studio',
-    period: '2017 - 2018',
-    description: 'Developed cross-platform mobile applications using React Native. Implemented complex UI animations and state management solutions.',
-    technologies: ['React Native', 'Redux', 'Firebase', 'GraphQL', 'Jest']
+    title: 'IT Lecturer / Program Head for IT',
+    company: 'Informatics College',
+    period: '2018 - 2019',
+    description: 'Plan, evaluate and revise curricula, course content, materials and methods of instructions. Perform administrative duties such as serving as the Program Head for Computer Studies.',
+    technologies: ['Senior High School', 'College', 'Coding Subjects', 'IT Subjects']
   },
   {
     title: 'DevOps Engineer',
@@ -75,106 +75,61 @@ export const experience: Experience[] = [
     technologies: ['AWS', 'Terraform', 'Ansible', 'Python', 'Linux']
   },
   {
-    title: 'UI/UX Developer',
-    company: 'Design Agency',
-    period: '2016 - 2017',
-    description: 'Created interactive prototypes and implemented complex UI components. Collaborated with designers to ensure pixel-perfect implementations.',
-    technologies: ['Figma', 'React', 'Styled Components', 'GSAP', 'Webpack']
-  },
-  {
-    title: 'Backend Developer',
-    company: 'API Solutions',
-    period: '2017 - 2018',
-    description: 'Developed RESTful APIs and microservices. Implemented caching strategies and database optimizations.',
-    technologies: ['Node.js', 'Express', 'Redis', 'MongoDB', 'Docker']
-  },
-  {
-    title: 'Full Stack Developer',
-    company: 'E-commerce Platform',
-    period: '2015 - 2016',
-    description: 'Built and maintained e-commerce platforms with payment integration and inventory management systems.',
-    technologies: ['PHP', 'Laravel', 'MySQL', 'Vue.js', 'Stripe']
-  },
-  {
-    title: 'Software Developer',
-    company: 'Tech Innovation Lab',
-    period: '2014 - 2015',
-    description: 'Worked on experimental projects and proof-of-concepts. Implemented innovative solutions using cutting-edge technologies.',
-    technologies: ['Python', 'Django', 'React', 'PostgreSQL', 'Docker']
+    title: 'Programmer',
+    company: 'Bestank Manufacturing Corp.',
+    period: '2017 - 2019',
+    description: 'Write, update and maintain computer programs or software packages to handle specific jobs such as tracking inventory, storing, or retrieving data or controlling other equipment.',
+    technologies: ['HTML', 'CSS', 'PHP', 'MySQL', 'Javascript']
   }
 ]
 
 export const works: Work[] = [
   {
-    title: 'E-commerce Platform',
-    description: 'A full-featured online shopping platform with real-time inventory management, payment processing, and order tracking.',
-    technologies: ['Vue.js', 'Node.js', 'MongoDB', 'Stripe', 'Redis'],
-    image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80',
-    link: 'https://example.com/ecommerce',
-    repo: 'https://github.com/example/ecommerce'
+    title: 'Malolos Interactive Map',
+    description: 'EHFC-Tracking provides an interactive map interface that dynamically loads and displays barangay‐level map data of Malolos City, Bulacan.',
+    technologies: ['NextJS', 'Node.js', 'Typescript', 'Supabase', 'Mapbox'],
+    image: 'https://images.unsplash.com/photo-1584463699033-0da7a4af2c8e?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    link: 'https://ehfc-tracking.vercel.app/',
+    repo: 'https://github.com/yaacobmartinez-personal/ehfc-tracking'
   },
   {
-    title: 'Task Management App',
-    description: 'A collaborative project management tool with real-time updates, team features, and advanced task organization.',
-    technologies: ['React', 'Firebase', 'Tailwind', 'Redux', 'Material-UI'],
-    image: 'https://images.unsplash.com/photo-1540350394557-8d14678e7f91?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1632&q=80',
-    link: 'https://example.com/taskmanager',
+    title: 'Datamex College of Saint Adeline',
+    description: 'Developed and deployed a responsive college information website for Datamex using modern web technologies and hosted on Vercel.',
+    technologies: ['NextJS', 'Material UI', 'Framer Motion'],
+    image: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=1532&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    link: 'https://datamex.vercel.app/',
     repo: 'https://github.com/example/taskmanager'
   },
   {
-    title: 'Social Media Dashboard',
-    description: 'Analytics dashboard for social media management with real-time data visualization and campaign tracking.',
-    technologies: ['Vue.js', 'D3.js', 'Express.js', 'Socket.io', 'Chart.js'],
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80',
-    link: 'https://example.com/dashboard',
-    repo: 'https://github.com/example/dashboard'
+    title: 'Studio Banx',
+    description: 'A One Pager Website for a Studio Banx, a production studio in the Philippines.',
+    technologies: ['NextJS', 'Material-UI'],
+    image: 'https://banx.vercel.app/images/banxBG.png',
+    link: 'https://banx.vercel.app',
+    repo: 'https://github.com/yaacobmartinez/studio-banx/'
   },
   {
     title: 'Portfolio Website',
-    description: 'Personal portfolio website with blog functionality, dark mode support, and interactive animations.',
-    technologies: ['Nuxt.js', 'Tailwind CSS', 'Markdown', 'GSAP', 'Vuex'],
+    description: 'Personal portfolio website',
+    technologies: ['Nuxt.js', 'Tailwind CSS', 'Markdown', 'Supabase', 'Vuex'],
     image: 'https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1528&q=80',
-    link: 'https://example.com/portfolio',
-    repo: 'https://github.com/example/portfolio'
+    link: 'https://portfolio-drab-ten-29.vercel.app/',
+    repo: 'https://github.com/yaacobmartinez-personal/portfolio'
   },
   {
-    title: 'Real-time Chat Application',
-    description: 'A modern chat application with real-time messaging, file sharing, and end-to-end encryption.',
-    technologies: ['Vue.js', 'Socket.io', 'WebRTC', 'IndexedDB', 'Tailwind'],
-    image: 'https://images.unsplash.com/photo-1573164713988-8665fc963095?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80',
-    link: 'https://example.com/chat',
-    repo: 'https://github.com/example/chat'
-  },
-  {
-    title: 'Fitness Tracking App',
-    description: 'A comprehensive fitness tracking application with workout planning, progress monitoring, and nutrition tracking.',
-    technologies: ['React Native', 'Firebase', 'Redux', 'GraphQL', 'Apollo'],
-    image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80',
-    link: 'https://example.com/fitness',
-    repo: 'https://github.com/example/fitness'
-  },
-  {
-    title: 'AI-Powered Content Generator',
-    description: 'An AI-driven content generation platform that creates SEO-optimized articles and marketing copy.',
-    technologies: ['Python', 'TensorFlow', 'FastAPI', 'React', 'PostgreSQL'],
-    image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1632&q=80',
-    link: 'https://example.com/ai-content',
-    repo: 'https://github.com/example/ai-content'
-  },
-  {
-    title: 'Smart Home Dashboard',
-    description: 'A centralized dashboard for managing smart home devices with automation rules and energy monitoring.',
-    technologies: ['Vue.js', 'MQTT', 'WebSocket', 'D3.js', 'Tailwind'],
-    image: 'https://images.unsplash.com/photo-1558002038-1055907df827?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80',
-    link: 'https://example.com/smarthome',
-    repo: 'https://github.com/example/smarthome'
+    title: 'MBDO Cargo Express',
+    description: 'A dashboard for MBDO Cargo Express, a cargo company in the Philippines.',
+    technologies: ['NextJS', 'Material UI'],
+    image: 'https://images.unsplash.com/photo-1579992822406-2092a7bd5a36?q=80&w=1471&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    link: 'https://mbdo.vercel.app/',
+    repo: 'https://github.com/yaacobmartinez/mbdo.'
   }
 ]
 
 // Filter works based on technologies
 export const webWorks = works.filter(work => 
   work.technologies.some(tech => 
-    ['Vue.js', 'React', 'Nuxt.js', 'Express.js', 'Node.js'].includes(tech)
+    ['Vue.js', 'React', 'Nuxt.js', 'Express.js', 'Node.js', 'NextJS'].includes(tech)
   )
 )
 
