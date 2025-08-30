@@ -13,7 +13,7 @@
       <h3 class="text-xl lg:text-2xl font-semibold text-white mb-2 lg:mb-3">{{ title }}</h3>
       <p class="text-base lg:text-lg text-slate-300 mb-3 lg:mb-4">{{ description }}</p>
       <div class="flex flex-wrap gap-2">
-        <span v-for="tech in technologies" :key="tech" class="px-2 py-1 lg:px-3 lg:py-1 bg-slate-800/50 text-slate-300 rounded-full text-xs lg:text-sm">{{ tech }}</span>
+        <span v-for="tech in technologies.split(',').map(t => t.trim())" :key="tech" class="px-2 py-1 lg:px-3 lg:py-1 bg-slate-800/50 text-slate-300 rounded-full text-xs lg:text-sm">{{ tech }}</span>
       </div>
     </div>
   </div>
@@ -23,7 +23,7 @@
 defineProps<{
   title: string;
   description: string;
-  technologies: string[];
+  technologies: string;
   image: string;
 }>();
 

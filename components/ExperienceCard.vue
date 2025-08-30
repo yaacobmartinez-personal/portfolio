@@ -8,7 +8,7 @@
     <p class="text-slate-400 mb-3">{{ company }} • {{ period }}</p>
     <p class="text-slate-300 mb-4">{{ description }}</p>
     <div class="flex flex-wrap gap-2">
-      <span v-for="(tech, index) in technologies" :key="index" class="px-3 py-1 bg-slate-800 text-slate-300 rounded-full text-sm">{{ tech }}</span>
+      <span v-for="tech in technologies.split(',').map((t: string) => t.trim())" :key="tech" class="px-3 py-1 bg-slate-800 text-slate-300 rounded-full text-sm">{{ tech }}</span>
     </div>
   </div>
 </template>
@@ -19,7 +19,7 @@ interface ExperienceCardProps {
   company: string;
   period: string;
   description: string;
-  technologies: string[];
+  technologies: string;
 }
 
 defineProps<ExperienceCardProps>();

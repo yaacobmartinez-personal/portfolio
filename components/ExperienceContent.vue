@@ -14,9 +14,19 @@
         </svg>
       </a>
       
+      <!-- Loading State -->
+      <div v-if="loading" class="flex justify-center items-center py-12">
+        <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500"></div>
+      </div>
+
+      <!-- Error State -->
+      <div v-else-if="error" class="text-center py-12">
+        <p class="text-red-400 text-lg">{{ error }}</p>
+      </div>
+
       <!-- Mobile/Tablet Card View -->
-      <div class="lg:hidden space-y-6">
-        <div v-for="exp in experience" :key="exp.title" 
+      <div v-else class="lg:hidden space-y-6">
+        <div v-for="exp in experience" :key="exp.id" 
           class="rounded-lg p-6 hover:bg-slate-900/70 transition-all duration-300 cursor-pointer"
         >
           <div class="flex-1">
@@ -33,14 +43,14 @@
               </div>
             </div>
             <div class="flex flex-wrap gap-2">
-              <span v-for="tech in exp.technologies" :key="tech" class="px-2 py-1 lg:px-3 lg:py-1 bg-slate-800/50 text-slate-300 rounded-full text-xs lg:text-sm">{{ tech }}</span>
+              <span v-for="tech in exp.technologies.split(',').map((t: string) => t.trim())" :key="tech" class="px-2 py-1 lg:px-3 lg:py-1 bg-slate-800/50 text-slate-300 rounded-full text-xs lg:text-sm">{{ tech }}</span>
             </div>
           </div>
         </div>
       </div>
 
       <!-- Desktop Table View -->
-      <div class="hidden lg:block overflow-x-auto">
+      <div v-else class="hidden lg:block overflow-x-auto">
         <table class="w-full">
           <thead>
             <tr class="border-b border-slate-800">
@@ -51,7 +61,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr v-for="exp in experience" :key="exp.title" class="border-b border-slate-800/50 hover:bg-slate-900/50 transition-colors">
+            <tr v-for="exp in experience" :key="exp.id" class="border-b border-slate-800/50 hover:bg-slate-900/50 transition-colors">
               <td class="py-8 px-6">
                 <div>
                   <h3 class="text-xl font-medium text-white">{{ exp.title }}</h3>
@@ -66,7 +76,7 @@
               </td>
               <td class="py-8 px-6">
                 <div class="flex flex-wrap gap-3">
-                  <span v-for="tech in exp.technologies" :key="tech" class="px-3 py-1.5 bg-slate-800/50 text-slate-300 rounded-full text-sm">{{ tech }}</span>
+                  <span v-for="tech in exp.technologies.split(',').map((t: string) => t.trim())" :key="tech" class="px-3 py-1.5 bg-slate-800/50 text-slate-300 rounded-full text-sm">{{ tech }}</span>
                 </div>
               </td>
             </tr>
@@ -78,5 +88,14 @@
 </template>
 
 <script setup lang="ts">
-import { experience } from '~/data/portfolio'
+import { useExperienceStore } from '~/stores/experience'
+
+const experienceStore = useExperienceStore()
+
+// Use experience from the store
+const experience = computed(() => experienceStore.experience)
+
+// Access loading and error states from the store
+const loading = computed(() => experienceStore.loading)
+const error = computed(() => experienceStore.error)
 </script> 

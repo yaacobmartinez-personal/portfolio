@@ -43,18 +43,18 @@
               </tr>
             </thead>
             <tbody>
-              <tr v-for="work in webWorks" :key="work.title" class="border-b border-slate-800/50 hover:bg-slate-900/50 transition-colors">
-                <td class="py-4 px-4">
-                  <div>
-                    <h3 class="text-lg font-medium text-white">{{ work.title }}</h3>
-                    <p class="text-sm text-slate-400 mt-1">{{ work.description }}</p>
-                  </div>
-                </td>
-                <td class="py-4 px-4">
-                  <div class="flex flex-wrap gap-2">
-                    <span v-for="tech in work.technologies" :key="tech" class="px-2 py-1 bg-slate-800/50 text-slate-300 rounded-full text-xs">{{ tech }}</span>
-                  </div>
-                </td>
+                             <tr v-for="work in webWorks" :key="work.title" class="border-b border-slate-800/50 hover:bg-slate-900/50 transition-colors">
+                 <td class="py-4 px-4">
+                   <div>
+                     <h3 class="text-lg font-medium text-white">{{ work.title }}</h3>
+                     <p class="text-sm text-slate-400 mt-1">{{ work.description }}</p>
+                   </div>
+                 </td>
+                 <td class="py-4 px-4">
+                   <div class="flex flex-wrap gap-2">
+                     <span v-for="tech in work.technologies.split(',').map((t: string) => t.trim())" :key="tech" class="px-2 py-1 bg-slate-800/50 text-slate-300 rounded-full text-xs">{{ tech }}</span>
+                   </div>
+                 </td>
                 <td class="py-4 px-4">
                   <a v-if="work.link" :href="work.link" target="_blank" rel="noopener noreferrer" class="text-slate-300 hover:text-white transition-colors" aria-label="View project" title="View project">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" class="h-5 w-5">
@@ -117,18 +117,18 @@
               </tr>
             </thead>
             <tbody>
-              <tr v-for="work in designWorks" :key="work.title" class="border-b border-slate-800/50 hover:bg-slate-900/50 transition-colors">
-                <td class="py-4 px-4">
-                  <div>
-                    <h3 class="text-lg font-medium text-white">{{ work.title }}</h3>
-                    <p class="text-sm text-slate-400 mt-1">{{ work.description }}</p>
-                  </div>
-                </td>
-                <td class="py-4 px-4">
-                  <div class="flex flex-wrap gap-2">
-                    <span v-for="tech in work.technologies" :key="tech" class="px-2 py-1 bg-slate-800/50 text-slate-300 rounded-full text-xs">{{ tech }}</span>
-                  </div>
-                </td>
+                             <tr v-for="work in designWorks" :key="work.title" class="border-b border-slate-800/50 hover:bg-slate-900/50 transition-colors">
+                 <td class="py-4 px-4">
+                   <div>
+                     <h3 class="text-lg font-medium text-white">{{ work.title }}</h3>
+                     <p class="text-sm text-slate-400 mt-1">{{ work.description }}</p>
+                   </div>
+                 </td>
+                 <td class="py-4 px-4">
+                   <div class="flex flex-wrap gap-2">
+                     <span v-for="tech in work.technologies.split(',').map((t: string) => t.trim())" :key="tech" class="px-2 py-1 bg-slate-800/50 text-slate-300 rounded-full text-xs">{{ tech }}</span>
+                   </div>
+                 </td>
                 <td class="py-4 px-4">
                   <a v-if="work.link" :href="work.link" target="_blank" rel="noopener noreferrer" class="text-slate-300 hover:text-white transition-colors" aria-label="View project" title="View project">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" class="h-5 w-5">
@@ -153,5 +153,16 @@
 </template>
 
 <script setup lang="ts">
-import { webWorks, mobileWorks, designWorks } from '~/data/portfolio'
+import { useWorksStore } from '~/stores/works'
+
+const worksStore = useWorksStore()
+
+// Use the store's computed properties
+const webWorks = computed(() => worksStore.getWebWorks)
+const mobileWorks = computed(() => worksStore.getMobileWorks)
+const designWorks = computed(() => worksStore.getDesignWorks)
+
+// Access loading and error states from the store
+const loading = computed(() => worksStore.loading)
+const error = computed(() => worksStore.error)
 </script> 

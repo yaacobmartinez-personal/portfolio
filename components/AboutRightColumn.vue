@@ -1,25 +1,23 @@
 <template>
   <div class="w-full p-[10px] lg:p-8 lg:pr-80 flex flex-col relative z-10">
     <div class="pt-[10px] lg:pt-[100px] pr-[10px] lg:pr-8 space-y-16">
-      <div id="skills" class="pt-[10px] lg:pt-[50px]">
+      <!-- Loading State -->
+      <div v-if="skillsLoading" class="flex justify-center items-center py-12">
+        <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500"></div>
+      </div>
+
+      <!-- Error State -->
+      <div v-else-if="skillsError" class="text-center py-12">
+        <p class="text-red-400 text-lg">{{ skillsError }}</p>
+      </div>
+
+      <div v-else id="skills" class="pt-[10px] lg:pt-[50px]">
         <h2 class="text-3xl font-bold text-white mb-6">Skills</h2>
         <div class="space-y-6 pl-6">
-          <div>
-            <h3 class="text-lg font-semibold mb-2">Frontend Development</h3>
+          <div v-for="skill in skills" :key="skill.id">
+            <h3 class="text-lg font-semibold mb-2">{{ skill.title }}</h3>
             <p class="text-slate-400">
-              Proficient in modern frontend frameworks including Vue.js and React, with extensive experience in building responsive and interactive user interfaces using Tailwind CSS and other modern CSS frameworks.
-            </p>
-          </div>
-          <div>
-            <h3 class="text-lg font-semibold mb-2">Backend Development</h3>
-            <p class="text-slate-400">
-              Strong background in Node.js and Express for building scalable backend services, with additional experience in Python for data processing and API development.
-            </p>
-          </div>
-          <div>
-            <h3 class="text-lg font-semibold mb-2">DevOps & Tools</h3>
-            <p class="text-slate-400">
-              Experienced with Docker for containerization, AWS for cloud infrastructure, and implementing CI/CD pipelines for automated testing and deployment.
+              {{ skill.description }}
             </p>
           </div>
         </div>
@@ -29,8 +27,8 @@
         <h2 class="text-3xl font-bold text-white mb-6">Experience</h2>
         <div class="space-y-6">
           <ExperienceCard
-            v-for="(job, index) in experience.slice(0, 4)"
-            :key="index"
+            v-for="(job, index) in displayedExperience"
+            :key="job.id"
             :title="job.title"
             :company="job.company"
             :period="job.period"
@@ -163,13 +161,19 @@
 import ExperienceCard from './ExperienceCard.vue'
 import WorkCard from './WorkCard.vue'
 import { ref, computed, watch } from 'vue'
-import { experience } from '../data/portfolio'
-import { works } from '~/data/portfolio'
 import { contactInfo } from '~/data/contact'
+import { useWorksStore } from '~/stores/works'
+import { useExperienceStore } from '~/stores/experience'
+import { useSkillsStore } from '~/stores/skills'
 
 const props = defineProps<{
   activeSection?: string
 }>()
+
+// Initialize stores
+const worksStore = useWorksStore()
+const experienceStore = useExperienceStore()
+const skillsStore = useSkillsStore()
 
 const formData = ref({
   name: '',
@@ -204,7 +208,16 @@ const hoveredExperienceIndex = ref(-1)
 const isWorkHovered = ref(false)
 const hoveredWorkIndex = ref(-1)
 
-const displayedWorks = computed(() => works.slice(0, 4))
+// Use works from the store, showing first 4 works
+const displayedWorks = computed(() => worksStore.works.slice(0, 4))
+
+// Use experience from the store, showing first 4 experiences
+const displayedExperience = computed(() => experienceStore.experience.slice(0, 4))
+
+// Use skills from the store
+const skills = computed(() => skillsStore.skills)
+const skillsLoading = computed(() => skillsStore.loading)
+const skillsError = computed(() => skillsStore.error)
 
 const handleExperienceHover = (index: number, isHovered: boolean) => {
   isExperienceHovered.value = isHovered

@@ -2,7 +2,7 @@
 export default defineNuxtConfig({
   compatibilityDate: '2025-05-15',
   devtools: { enabled: true },
-  modules: ['@nuxtjs/tailwindcss', ['nuxt-mail', {
+  modules: ['@nuxtjs/tailwindcss', '@pinia/nuxt', ['nuxt-mail', {
     message: [
       { name: 'contact', to: process.env.SMTP_USER } 
     ],
@@ -38,5 +38,11 @@ export default defineNuxtConfig({
   },
   routeRules: {
     '/': { redirect: '/about' }
+  },
+  runtimeConfig: {
+    public: {
+      supabaseUrl: process.env.SUPABASE_URL,
+      supabaseAnonKey: process.env.SUPABASE_KEY,
+    }
   }
 })

@@ -71,20 +71,6 @@ onUnmounted(() => {
   window.removeEventListener('scroll', updateActiveSection)
 })
 
-const skills = [
-  'Vue.js',
-  'React',
-  'TypeScript',
-  'Node.js',
-  'Python',
-  'PHP',
-  'MySQL',
-  'MongoDB',
-  'AWS',
-  'Docker',
-  'Git',
-  'Tailwind CSS'
-]
 </script>
 
 <style>

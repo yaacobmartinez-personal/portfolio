@@ -33,22 +33,6 @@ const updateMousePosition = (e: MouseEvent) => {
   document.documentElement.style.setProperty('--mouse-x', `${e.clientX}px`)
   document.documentElement.style.setProperty('--mouse-y', `${e.clientY}px`)
 }
-
-const handleMenuClick = (section: string) => {
-  activeSection.value = section
-  const element = document.getElementById(section)
-  if (element) {
-    const offset = 150
-    const elementPosition = element.getBoundingClientRect().top
-    const offsetPosition = elementPosition + window.pageYOffset - offset
-
-    window.scrollTo({
-      top: offsetPosition,
-      behavior: 'smooth'
-    })
-  }
-}
-
 // Scroll tracking
 const handleScroll = () => {
   const scrollPosition = window.scrollY + 150

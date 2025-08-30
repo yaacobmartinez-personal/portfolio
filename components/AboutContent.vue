@@ -14,7 +14,7 @@
 </template>
 
 <script setup lang="ts">
-import { aboutMe } from '~/data/portfolio'
+const aboutMe = `I'm a passionate full-stack developer with expertise in modern web technologies. I love creating efficient, scalable, and user-friendly applications that solve real-world problems. With a strong foundation in both frontend and backend development, I strive to build solutions that not only meet technical requirements but also provide exceptional user experiences.`
 
 const props = withDefaults(defineProps<{
   activeSection: string

@@ -15,10 +15,6 @@ useHead({
     }
   ]
 })
-
-definePageMeta({
-  layout: 'default'
-})
 </script>
 
 <style>

@@ -1,48 +1,58 @@
 <template>
   <div class="w-full p-[10px] lg:p-8 lg:pr-80 flex flex-col relative z-10">
     <div class="pt-[10px] lg:pt-[100px] pr-[10px] lg:pr-8 space-y-16">
-      <div id="all" class="pt-[10px] lg:pt-[50px]" :class="{ 'opacity-40': activeSection !== 'all' }">
+      <!-- Loading State -->
+      <div v-if="loading" class="flex justify-center items-center py-12">
+        <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500"></div>
+      </div>
+
+      <!-- Error State -->
+      <div v-else-if="error" class="text-center py-12">
+        <p class="text-red-400 text-lg">{{ error }}</p>
+      </div>
+
+      <div v-else id="all" class="pt-[10px] lg:pt-[50px]" :class="{ 'opacity-40': activeSection !== 'all' }">
         <h2 class="text-3xl font-bold text-white mb-8">All Works</h2>
         <div class="space-y-6">
           <WorkCard
             v-for="work in allWorks"
-            :key="work.title"
+            :key="work.id"
             v-bind="work"
             @hover="handleHover"
           />
         </div>
       </div>
 
-      <div id="web" class="pt-[10px] lg:pt-[50px]" :class="{ 'opacity-40': activeSection !== 'web' }">
+      <div v-else id="web" class="pt-[10px] lg:pt-[50px]" :class="{ 'opacity-40': activeSection !== 'web' }">
         <h2 class="text-3xl font-bold text-white mb-8">Web Development</h2>
         <div class="space-y-6">
           <WorkCard
             v-for="work in webWorks"
-            :key="work.title"
+            :key="work.id"
             v-bind="work"
             @hover="handleHover"
           />
         </div>
       </div>
 
-      <div id="mobile" class="pt-[10px] lg:pt-[50px]" :class="{ 'opacity-40': activeSection !== 'mobile' }">
+      <div v-else id="mobile" class="pt-[10px] lg:pt-[50px]" :class="{ 'opacity-40': activeSection !== 'mobile' }">
         <h2 class="text-3xl font-bold text-white mb-8">Mobile Apps</h2>
         <div class="space-y-6">
           <WorkCard
             v-for="work in mobileWorks"
-            :key="work.title"
+            :key="work.id"
             v-bind="work"
             @hover="handleHover"
           />
         </div>
       </div>
 
-      <div id="design" class="pt-[10px] lg:pt-[50px]" :class="{ 'opacity-40': activeSection !== 'design' }">
+      <div v-else id="design" class="pt-[10px] lg:pt-[50px]" :class="{ 'opacity-40': activeSection !== 'design' }">
         <h2 class="text-3xl font-bold text-white mb-8">Design</h2>
         <div class="space-y-6">
           <WorkCard
             v-for="work in designWorks"
-            :key="work.title"
+            :key="work.id"
             v-bind="work"
             @hover="handleHover"
           />
@@ -53,54 +63,25 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { useWorksStore } from '~/stores/works'
 
 defineProps<{
   activeSection: string
 }>()
 
+const worksStore = useWorksStore()
+
 const handleHover = (isHovered: boolean) => {
   // Handle hover state if needed
 }
 
-// Sample data - replace with your actual works
-const allWorks = [
-  {
-    title: 'Project 1',
-    description: 'A full-stack web application built with Vue.js and Node.js',
-    image: '/images/project1.jpg',
-    technologies: ['Vue.js', 'Node.js', 'MongoDB']
-  },
-  // Add more works...
-]
+// Use works from the store
+const allWorks = computed(() => worksStore.works)
+const webWorks = computed(() => worksStore.getWebWorks)
+const mobileWorks = computed(() => worksStore.getMobileWorks)
+const designWorks = computed(() => worksStore.getDesignWorks)
 
-const webWorks = [
-  {
-    title: 'Web Project 1',
-    description: 'A responsive web application with modern design',
-    image: '/images/web1.jpg',
-    technologies: ['React', 'TypeScript', 'Tailwind CSS']
-  },
-  // Add more web works...
-]
-
-const mobileWorks = [
-  {
-    title: 'Mobile App 1',
-    description: 'A cross-platform mobile application',
-    image: '/images/mobile1.jpg',
-    technologies: ['React Native', 'Firebase']
-  },
-  // Add more mobile works...
-]
-
-const designWorks = [
-  {
-    title: 'Design Project 1',
-    description: 'UI/UX design for a modern web application',
-    image: '/images/design1.jpg',
-    technologies: ['Figma', 'Adobe XD']
-  },
-  // Add more design works...
-]
+// Access loading and error states from the store
+const loading = computed(() => worksStore.loading)
+const error = computed(() => worksStore.error)
 </script> 
