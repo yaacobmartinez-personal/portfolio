@@ -28,6 +28,7 @@ export default defineNuxtConfig({
     ['@nuxtjs/sitemap', {
       hostname: 'https://yaacob-martinez.vercel.app',
       gzip: true,
+      xsl: false
     }]
   ],
   nitro: {
